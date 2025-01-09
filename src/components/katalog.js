@@ -69,9 +69,7 @@ export default function CatalogSection() {
             <motion.div
               key={index}
               className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden"
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
+           
             >
               <Image
               width={400}
@@ -101,13 +99,11 @@ export default function CatalogSection() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
           className="absolute -top-10 -left-10 w-72 h-72 bg-yellow-400 rounded-full filter blur-3xl opacity-30"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
+        
         />
         <motion.div
           className="absolute  w-96 h-96 bg-red-400 rounded-full filter blur-3xl opacity-30"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+       
         />
       </div>
     </section>

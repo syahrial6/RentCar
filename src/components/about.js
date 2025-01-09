@@ -7,11 +7,9 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Gambar dengan animasi */}
-          <motion.div
+          <div
             className="overflow-hidden rounded-lg shadow-lg"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+          
           >
             <Image
               width={600}
@@ -22,14 +20,12 @@ export default function About() {
               className="w-full h-54 object-cover"
               
             />
-          </motion.div>
+          </div>
 
           {/* Deskripsi dengan animasi */}
-          <motion.div
+          <div
             className="text-center md:text-left"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
+          
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">About Us</h2>
             <p className="text-lg mb-6">
@@ -49,7 +45,7 @@ export default function About() {
               nyaman dan menyenangkan.
             </p>
          
-          </motion.div>
+          </div>
         </div>
       </div>
 
@@ -57,13 +53,11 @@ export default function About() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
           className="absolute -top-20 -left-20 w-72 h-72 bg-blue-400 rounded-full filter blur-3xl opacity-30"
-          animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 6, repeat: Infinity, repeatType: "reverse" }}
+        
         />
         <motion.div
           className="absolute  w-96 h-96 bg-indigo-400 rounded-full filter blur-3xl opacity-30"
-          animate={{ scale: [1, 1.3, 1], opacity: [0.3, 0.5, 0.3] }}
-          transition={{ duration: 8, repeat: Infinity, repeatType: "reverse" }}
+         
         />
       </div>
     </section>

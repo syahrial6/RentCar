@@ -45,6 +45,7 @@ const Navbar = () => {
               src={"/images/logo.png"}
               width={50}
               height={50}
+              alt='logo'
               className='object-cover bg-white rounded-xl'
               />
             </div>
