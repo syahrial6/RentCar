@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section className="relative bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-20">
+    <section id="about" className="relative bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           {/* Gambar dengan animasi */}

@@ -58,7 +58,7 @@ const Navbar = () => {
                   Home
                 </a>
                 <a
-                  href="#"
+                  href="#about"
                   className="text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 ease-in-out transform hover:scale-105 hover:text-gray-300"
                 >
                   About
@@ -93,7 +93,7 @@ const Navbar = () => {
             Home
           </a>
           <a
-            href="#"
+            href="#about"
             className="text-white block px-3 py-2 rounded-md text-base font-medium transition duration-300 ease-in-out transform hover:scale-105 hover:text-gray-300"
           >
             About
