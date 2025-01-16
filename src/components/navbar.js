@@ -70,7 +70,7 @@ const Navbar = () => {
                   Catalog
                 </a>
                 <a
-                  href="#"
+                  href="#contact"
                   className="text-white px-3 py-2 rounded-md text-lg font-medium transition duration-300 ease-in-out transform hover:scale-105 hover:text-gray-300"
                 >
                   Contact
