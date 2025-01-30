@@ -91,16 +91,7 @@ export default function CatalogSection() {
       </div>
 
       {/* Background Animation */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <motion.div
-          className="absolute -top-10 -left-10 w-72 h-72 bg-yellow-400 rounded-full filter blur-3xl opacity-30"
-        
-        />
-        <motion.div
-          className="absolute  w-96 h-96 bg-red-400 rounded-full filter blur-3xl opacity-30"
-       
-        />
-      </div>
+      
     </section>
   );
 }

@@ -3,23 +3,31 @@ import {motion} from "motion/react"
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white overflow-hidden font-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative z-10 flex flex-col items-center text-center py-20 md:py-32">
+        <motion.div className="relative z-10 flex flex-col items-center text-center py-20 md:py-32"
+         initial={{ opacity: 0, y: -20 }}
+         animate={{ opacity: 1, y: 0 }}
+         transition={{ duration: 0.5 }}
+        >
           {/* Animated Heading */}
-          <h1
+          <motion.h1
+
+initial={{ opacity: 0, y: -20 }}
+animate={{ opacity: 1, y: 0 }}
+transition={{ duration: 0.5, delay: 0.2 }}
             className="text-4xl md:text-6xl font-extrabold tracking-tight"
             
           >
             Selamat Datang di{" "}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-500">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f5ce42] to-[#f5ce42]">
               Sewa Mobil Pontianak
             </span>
-          </h1>
+          </motion.h1>
 
           {/* Animated Subheading */}
           <p
-            className="mt-6 text-xl md:text-xl max-w-3xl"
+            className="mt-6 text-lg md:text-xl max-w-3xl"
            
           >
            Layanan Rental Mobil PNK Terlengkap ( Support By Artha Royal Group )
@@ -39,20 +47,11 @@ const Hero = () => {
             </a>
             
           </div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Background Animation */}
-      <div className="absolute inset-0 z-0">
-        <div
-          className="absolute -top-10 -left-10 w-80 h-80 bg-pink-400 rounded-full filter blur-3xl opacity-40"
-         
-        />
-        <div
-          className="absolute -bottom-10 -right-10 w-96 h-96 bg-yellow-400 rounded-full filter blur-3xl opacity-40"
-         
-        />
-      </div>
+     
     </section>
   )
 }
