@@ -1,9 +1,14 @@
 import React from 'react'
 import {motion} from "motion/react"
+import { Typewriter } from 'react-simple-typewriter'
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white overflow-hidden font-primary">
+    <motion.section 
+    initial={{ opacity: 0, y: 200 }}
+    animate={{ opacity: 1 , y: 0 }}
+    transition={{ duration: 1 }}
+    className="relative bg-gradient-to-br from-blue-900 to-blue-700 text-white overflow-hidden font-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div className="relative z-10 flex flex-col items-center text-center py-20 md:py-32"
          initial={{ opacity: 0, y: -20 }}
@@ -21,7 +26,8 @@ transition={{ duration: 0.5, delay: 0.2 }}
           >
             Selamat Datang di{" "}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#f5ce42] to-[#f5ce42]">
-              Sewa Mobil Pontianak
+            <Typewriter words={['Sewa Mobil Pontianak']} cursorStyle={'|'} typeSpeed={150} cursor={true} />
+              
             </span>
           </motion.h1>
 
@@ -34,7 +40,10 @@ transition={{ duration: 0.5, delay: 0.2 }}
           </p>
 
           {/* Call-to-Action Buttons */}
-          <div
+          <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-8 flex space-x-4"
          
           >
@@ -46,13 +55,13 @@ transition={{ duration: 0.5, delay: 0.2 }}
               Chat Admin
             </a>
             
-          </div>
+          </motion.div>
         </motion.div>
       </div>
 
       {/* Background Animation */}
      
-    </section>
+    </motion.section>
   )
 }
 
