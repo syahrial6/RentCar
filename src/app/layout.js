@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "Sewa Mobil Pontianak",
-  description: "Penyewaan Mobil Resmi Di Pontianak",
+  description: "Butuh Mobil di Pontianak? CV Artha Royal Group Adalah Penyewaan Mobil Resmi Di Pontianak Terpercaya & Terlengkap",
 };
 
 export default function RootLayout({ children }) {
