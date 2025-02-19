@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
+      <meta name="google-site-verification" content="qCRe_lfvgC1b9F50m9ICzP4d-kElThyrzFoFetwqAvU" />
       <body>
         <ThemeProvider attribute="class" defaultTheme="system">
           {children}
