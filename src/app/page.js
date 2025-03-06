@@ -1,48 +1,18 @@
 "use client";
 
+import { NextSeo, LogoJsonLd } from "next-seo";
 import About from "@/components/about";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import CatalogSection from "@/components/katalog";
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-
-// Import Next-SEO
-import { NextSeo, LogoJsonLd } from "next-seo";
+import SeoDefault from "@/components/SeoDefault";
 
 export default function Home() {
   return (
     <>
-      {/* SEO khusus halaman Home */}
-      <NextSeo
-        title="Sewa Mobil Pontianak | CV Artha Royal Group"
-        description="CV Artha Royal Group menyediakan layanan sewa mobil Pontianak terpercaya, aman, dan lengkap dengan harga terbaik."
-        canonical="https://rentalmobilpnk.com/"
-        openGraph={{
-          url: "https://rentalmobilpnk.com/",
-          title: "Sewa Mobil Pontianak | CV Artha Royal Group",
-          description:
-            "CV Artha Royal Group menyediakan layanan sewa mobil Pontianak terpercaya, aman, dan lengkap dengan harga terbaik.",
-          images: [
-            {
-              url: "https://rentalmobilpnk.com/og-image.jpg",
-              width: 1200,
-              height: 630,
-              alt: "Sewa Mobil Pontianak",
-            },
-          ],
-          siteName: "Rental Mobil Pontianak",
-        }}
-        twitter={{
-          cardType: "summary_large_image",
-        }}
-      />
-
-      {/* JSON-LD Schema Logo/Brand */}
-      <LogoJsonLd
-        logo="/images/logo.png"
-        url="https://rentalmobilpnk.com"
-      />
+       <SeoDefault />
 
       <div>
         <Navbar />

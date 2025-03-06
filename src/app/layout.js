@@ -42,10 +42,6 @@ export default function RootLayout({ children }) {
     <html lang="id" suppressHydrationWarning>
       <head />
       <body>
-        {/* Default SEO */}
-        <DefaultSeo {...SEO} />
-
-        {/* Google Ads Conversion Tracking */}
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=AW-16724511690"
