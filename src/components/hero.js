@@ -32,12 +32,12 @@ transition={{ duration: 0.5, delay: 0.2 }}
           </motion.h1>
 
           {/* Animated Subheading */}
-          <p
+          <h2
             className="mt-6 text-lg md:text-xl max-w-3xl"
            
           >
            Layanan Rental Mobil PNK Terlengkap ( Support By Artha Royal Group )
-          </p>
+          </h2>
 
           {/* Call-to-Action Buttons */}
           <motion.div
