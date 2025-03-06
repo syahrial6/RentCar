@@ -1,18 +1,40 @@
 "use client";
 
-import { NextSeo, LogoJsonLd } from "next-seo";
 import About from "@/components/about";
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import CatalogSection from "@/components/katalog";
 import Navbar from "@/components/navbar";
 import Image from "next/image";
-import SeoDefault from "@/components/SeoDefault";
+import { DefaultSeo } from "next-seo";
 
 export default function Home() {
+
+  const SEO = {
+    title: "Sewa Mobil Pontianak - CV Artha Royal Group",
+    description:
+      "Butuh Mobil di Pontianak? CV Artha Royal Group adalah Penyewaan Mobil Resmi...",
+    openGraph: {
+      type: "website",
+      locale: "id_ID",
+      url: "https://rentalmobilpnk.com/",
+      siteName: "Rental Mobil Pontianak",
+      images: [
+        {
+          url: "https://rentalmobilpnk.com/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Sewa Mobil Pontianak",
+        },
+      ],
+    },
+    twitter: {
+      cardType: "summary_large_image",
+    },
+  };
   return (
     <>
-       <SeoDefault />
+       <DefaultSeo {...SEO} />
 
       <div>
         <Navbar />
