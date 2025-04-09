@@ -18,16 +18,7 @@ const cars = [
     image: "/images/3.webp",
     price: "Rp.400.000/day",
   },
-  {
-    name: "New Veloz",
-    image: "/images/4.webp",
-    price: "Rp.400.000/day",
-  },
-  {
-      name: "Honda Brio",
-      image: "/images/5.webp",
-      price: "Rp.400.000/day",
-    },
+
     {
       name: "Fortuner GR Sport 2.8 VRZ",
       image: "/images/6.webp",
@@ -83,7 +74,16 @@ export default function CatalogSection() {
                 <p className="text-blue-600 dark:text-blue-400 font-medium mb-4">
                   {car.price}
                 </p>
-                
+                <a
+              
+                href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Tertarik%20Menyewa%20Mobil%20*${car.name}*%20Dari%20Website`}
+                target="_blank"
+            
+            >
+              <button   className="bg-green-600 w-full text-white hover:bg-yellow-400 py-1 px-2 rounded-lg font-medium shadow-lg transition transform hover:scale-105">
+              Pesan Sekarang
+              </button>
+            </a>
               </div>
             </motion.div>
           ))}
