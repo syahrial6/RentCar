@@ -255,7 +255,7 @@ export default function HomePage() {
                 
                 width="360"
                 height="640"
-                src="https://www.youtube.com/shorts/DdFMvjn1vTc"
+                src="https://www.youtube.com/embed/DdFMvjn1vTc"
                 title="YouTube video player"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
