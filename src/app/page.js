@@ -21,18 +21,21 @@ const cars = [
     name: "New Avanza",
     image: "/images/1.webp",
     transmission: "Automatic",
+    seat: "7 Seats",
     price: "Rp.400.000/day",
   },
   {
     name: "Innova Reborn",
     image: "/images/2.webp",
     transmission: "Automatic",
-    price: "Rp.550.000/day",
+     seat: "7 Seats",
+    price: "Rp.500.000/day",
   },
   {
     name: "All New Livina",
     image: "/images/3.webp",
     transmission: "Automatic",
+     seat: "7 Seats",
     price: "Rp.400.000/day",
   },
 
@@ -40,24 +43,28 @@ const cars = [
     name: "Fortuner GR Sport 2.8 VRZ",
     image: "/images/6.webp",
     transmission: "Automatic",
+     seat: "7 Seats",
     price: "Rp.1.500.000/day",
   },
   {
     name: "Hilux DC 4x4",
     image: "/images/7.webp",
     transmission: "Automatic",
+     seat: "5 Seats",
     price: "Rp.1.500.000/day",
   },
   {
     name: "Hiace Commuter",
     image: "/images/8.webp",
     transmission: "Manual",
+     seat: "14 Seats",
     price: "Rp.1.500.000/day",
   },
   {
     name: "Alphard Transformer",
     image: "/images/9.webp",
     transmission: "Automatic",
+     seat: "7 Seats",
     price: "Rp.4.500.000/day",
   },
 ];
@@ -165,7 +172,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                   href="#cars"
-                  className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-black transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
+                  className="inline-flex h-10 items-center bg-orange-400 justify-center rounded-md px-8 text-sm font-medium text-white transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
                 >
                   Pesan Sekarang
                 </Link>
@@ -219,10 +226,7 @@ export default function HomePage() {
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="flex items-center gap-2">
-                    <Shield className="h-5 w-5 text-black" />
-                    <span className="text-sm font-medium">Fully Insured</span>
-                  </div>
+                 
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-black" />
                     <span className="text-sm font-medium">24/7 Support</span>
@@ -287,7 +291,7 @@ export default function HomePage() {
                     <h3 className="text-lg font-bold">{car.name}</h3>
                     <div className="mt-2 flex items-center text-sm text-gray-600">
                       <Users className="mr-1 h-4 w-4" />
-                      <span>5 Seats</span>
+                      <span>{car.seat}</span>
                       <span className="mx-2">•</span>
                       <span>{car.transmission}</span>
                     </div>
