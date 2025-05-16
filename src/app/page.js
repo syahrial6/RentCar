@@ -28,14 +28,14 @@ const cars = [
     name: "Innova Reborn",
     image: "/images/2.webp",
     transmission: "Automatic",
-     seat: "7 Seats",
+    seat: "7 Seats",
     price: "Rp.500.000/day",
   },
   {
     name: "All New Livina",
     image: "/images/3.webp",
     transmission: "Automatic",
-     seat: "7 Seats",
+    seat: "7 Seats",
     price: "Rp.400.000/day",
   },
 
@@ -43,28 +43,28 @@ const cars = [
     name: "Fortuner GR Sport 2.8 VRZ",
     image: "/images/6.webp",
     transmission: "Automatic",
-     seat: "7 Seats",
+    seat: "7 Seats",
     price: "Rp.1.500.000/day",
   },
   {
     name: "Hilux DC 4x4",
     image: "/images/7.webp",
     transmission: "Automatic",
-     seat: "5 Seats",
+    seat: "5 Seats",
     price: "Rp.1.500.000/day",
   },
   {
     name: "Hiace Commuter",
     image: "/images/8.webp",
     transmission: "Manual",
-     seat: "14 Seats",
+    seat: "14 Seats",
     price: "Rp.1.500.000/day",
   },
   {
     name: "Alphard Transformer",
     image: "/images/9.webp",
     transmission: "Automatic",
-     seat: "7 Seats",
+    seat: "7 Seats",
     price: "Rp.4.500.000/day",
   },
 ];
@@ -226,7 +226,6 @@ export default function HomePage() {
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 pt-4">
-                 
                   <div className="flex items-center gap-2">
                     <Clock className="h-5 w-5 text-black" />
                     <span className="text-sm font-medium">24/7 Support</span>
@@ -242,16 +241,26 @@ export default function HomePage() {
                     </span>
                   </div>
                 </div>
-                <div>
-                  <Link
-                    href="#"
-                    className="inline-flex items-center text-black font-medium hover:underline"
-                  >
-                    Learn more about us
-                    <ChevronRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
+                <div></div>
               </div>
+            </div>
+            <div className="block lg:hidden mx-auto items-center justify-center">
+              <h2 className="text-3xl text-center mb-2 font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                Video Tour
+              </h2>
+              <p className="text-gray-600 md:text-lg text-center mb-3">
+                Yuk Liburan Bersama AR Group Pontianak
+              </p>
+              <iframe
+                
+                width="360"
+                height="640"
+                src="https://www.youtube.com/shorts/DdFMvjn1vTc"
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
             </div>
           </div>
         </section>
@@ -270,7 +279,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-           
+
             <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-3">
               {/* Car Card 1 */}
               {cars.map((car, index) => (
@@ -304,18 +313,14 @@ export default function HomePage() {
                         href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20*${car.name}*%20Dari%20Website`}
                         className="inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus-visible:outline-none focus-visible:ring-1"
                       >
-                        
                         Book Now
                       </Link>
                     </div>
                   </div>
                 </div>
               ))}
-              
             </div>
-            <div className="flex justify-center">
-              
-            </div>
+            <div className="flex justify-center"></div>
           </div>
         </section>
 
@@ -331,8 +336,8 @@ export default function HomePage() {
                   Pesan mobil impian Anda hari ini dan nikmati pengalaman
                   berkendara yang tak terlupakan. Kami siap membantu Anda
                   menemukan kendaraan yang sempurna untuk perjalanan Anda.
-                  Dengan layanan pelanggan yang ramah dan profesional, kami
-                  akan memastikan Anda mendapatkan pengalaman terbaik.
+                  Dengan layanan pelanggan yang ramah dan profesional, kami akan
+                  memastikan Anda mendapatkan pengalaman terbaik.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
@@ -341,10 +346,8 @@ export default function HomePage() {
                   >
                     Book Now
                   </Link>
-                 
                 </div>
               </div>
-              
             </div>
           </div>
         </section>
