@@ -171,6 +171,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
+                target="_blank"
                   href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
                   className="inline-flex h-10 items-center bg-orange-400 justify-center rounded-md px-8 text-sm font-medium text-white transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
                 >
@@ -310,6 +311,7 @@ export default function HomePage() {
                         <span className="text-sm text-gray-600">/day</span>
                       </div>
                       <Link
+                      target="_blank"
                         href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20*${car.name}*%20Dari%20Website`}
                         className="inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus-visible:outline-none focus-visible:ring-1"
                       >
