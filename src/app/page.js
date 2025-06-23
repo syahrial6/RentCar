@@ -15,6 +15,7 @@ import {
   CreditCard,
   Users,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const cars = [
   {
@@ -172,17 +173,21 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                 target="_blank"
-                  href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
-                  className="inline-flex h-10 items-center bg-orange-400 justify-center rounded-md px-8 text-sm font-medium text-white transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
+                  href={`https://wa.me/6281349988354?text=Hai%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
+                  className="inline-flex h-10 items-center bg-green-500 justify-center rounded-md px-8 text-sm font-medium text-white transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
                 >
-                  Pesan Sekarang
+                  <FaWhatsapp size={25} />
+                  Chat Admin 1
                 </Link>
-                <Link
-                  href="#cars"
-                  className="inline-flex h-10 items-center justify-center rounded-md border border-white bg-transparent px-8 text-sm font-medium text-white transition-colors hover:bg-white/10 focus-visible:outline-none focus-visible:ring-1"
+                 <Link
+                target="_blank"
+                  href={`https://wa.me/6282152602121?text=Hai%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
+                  className="inline-flex h-10 items-center bg-green-500 justify-center rounded-md px-8 text-sm font-medium text-white transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
                 >
-                  Lihat Mobil
+                  <FaWhatsapp size={25} />
+                  Chat Admin 2
                 </Link>
+                
               </div>
             </div>
           </div>
