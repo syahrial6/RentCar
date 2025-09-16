@@ -33,11 +33,11 @@ const cars = [
     price: "Rp.500.000/day",
   },
   {
-    name: "All New Livina",
-    image: "/images/3.webp",
+    name: "New BRIO RS",
+    image: "/images/5.png",
     transmission: "Automatic",
-    seat: "7 Seats",
-    price: "Rp.400.000/day",
+    seat: "5 Seats",
+    price: "Rp.350.000/day",
   },
 
   {
