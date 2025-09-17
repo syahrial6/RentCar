@@ -29,6 +29,27 @@ export default function RootLayout({ children }) {
     `,
   }}
 />
+
+<Script
+  id="gtag-report-conversion"
+  dangerouslySetInnerHTML={{
+    __html: `
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof(url) != 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_',
+            'event_callback': callback
+        });
+        return false;
+      }
+    `,
+  }}
+/>
+
   
       </head>
       <body>
