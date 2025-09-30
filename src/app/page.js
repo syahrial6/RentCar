@@ -23,7 +23,7 @@ const cars = [
     image: "/images/1.webp",
     transmission: "Automatic",
     seat: "7 Seats",
-    price: "Rp.400.000/day",
+    price: "Rp.350.000/day",
   },
   {
     name: "Innova Reborn",
