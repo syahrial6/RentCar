@@ -23,7 +23,7 @@ const cars = [
     image: "/images/1.webp",
     transmission: "Automatic",
     seat: "7 Seats",
-    price: "Rp.400.000/day",
+    price: "Rp.350.000/day",
   },
   {
     name: "Innova Reborn",
@@ -119,7 +119,7 @@ export default function HomePage() {
           </nav>
           <div className="flex items-center gap-4">
             <Link
-              href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
+              href={`https://wa.me/6283873325988?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
               className="hidden md:inline-flex h-9 items-center justify-center rounded-md bg-orange-500 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950"
             >
               Book Now
@@ -173,7 +173,7 @@ export default function HomePage() {
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
                 target="_blank"
-                  href={`https://wa.me/6281349988354?text=Hai%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
+                  href={`https://wa.me/6283873325988?text=Hai%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
                   className="inline-flex h-10 items-center bg-green-500 justify-center rounded-md px-8 text-sm font-medium text-white transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
                 >
                   <FaWhatsapp size={25} />
@@ -317,7 +317,7 @@ export default function HomePage() {
                       </div>
                       <Link
                       target="_blank"
-                        href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20*${car.name}*%20Dari%20Website`}
+                        href={`https://wa.me/6283873325988?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20*${car.name}*%20Dari%20Website`}
                         className="inline-flex items-center justify-center rounded-md bg-orange-500 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-orange-700 focus-visible:outline-none focus-visible:ring-1"
                       >
                         Book Now
@@ -348,7 +348,7 @@ export default function HomePage() {
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <Link
-                    href={`https://wa.me/6281349988354?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
+                    href={`https://wa.me/6283873325988?text=Halo%20CV%20Artha%20Royal%20Group,%20Saya%20Ingin%20Menyewa%20Mobil%20Dari%20Website`}
                     className="inline-flex h-10 items-center justify-center rounded-md bg-white px-8 text-sm font-medium text-black transition-colors hover:bg-gray-200 focus-visible:outline-none focus-visible:ring-1"
                   >
                     Book Now
@@ -457,7 +457,7 @@ export default function HomePage() {
                 </li>
                 <li className="flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
-                  <span>+6281349988354</span>
+                  <span>+6283873325988</span>
                 </li>
                 <li className="flex items-center">
                   <Mail className="mr-2 h-5 w-5" />
