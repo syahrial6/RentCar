@@ -3,6 +3,7 @@ import Hero from "@/components/hero";
 import About from "@/components/about";
 import Katalog from "@/components/katalog";
 import Footer from "@/components/footer";
+import BackToTop from "@/components/backtotop";
 
 export default function HomePage() {
   return (
@@ -16,6 +17,8 @@ export default function HomePage() {
       <Katalog />
       
       <Footer />
+
+      <BackToTop />
     </div>
   );
 }

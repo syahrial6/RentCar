@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { MessageCircle, Maximize2, X, ArrowUpRight, Info } from "lucide-react";
+import { Maximize2, X, Users, MessageCircle } from "lucide-react";
 
 const cars = [
   { name: "New BRIO RS", image: "/images/5.PNG", price: "350.000", seats: "5", type: "City Car" },
@@ -11,151 +11,135 @@ const cars = [
   { name: "Innova Reborn", image: "/images/2.webp", price: "550.000", seats: "7", type: "Executive" },
   { name: "Fortuner GR Sport", image: "/images/6.webp", price: "1.500.000", seats: "7", type: "Luxury SUV" },
   { name: "Hilux DC 4x4", image: "/images/7.webp", price: "1.500.000", seats: "5", type: "Adventure" },
-  { name: "Hiace Commuter", image: "/images/8.webp", price: "1.500.000", seats: "15", type: "Group Travel" },
+  { name: "Hiace Commuter", image: "/images/8.webp", price: "1.750.000", seats: "15", type: "Group Travel" },
   { name: "Alphard Transformer", image: "/images/9.webp", price: "4.500.000", seats: "7", type: "Presidential" },
 ];
 
 const Catalog = () => {
   const [selectedImg, setSelectedImg] = useState(null);
 
+  const admin1 = "6281349988354";
+  const admin2 = "6282152602121"; 
+
   return (
-    <section id="catalog" className="bg-white py-24 lg:py-32 font-primary">
+    <section id="catalog" className="bg-white py-24 lg:py-40">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Header: Split Layout Modern */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-8">
+        {/* Header Section */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
           <div className="max-w-2xl">
-            <motion.p 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="text-[#fe6b10] font-black uppercase tracking-[0.4em] text-xs mb-4"
-            >
-              Exclusive Selection
-            </motion.p>
-            <h2 className="text-5xl md:text-7xl font-black text-gray-900 leading-[0.8] tracking-tighter uppercase italic">
-              Our <span className="text-[#fe6b10] not-italic">Fleet.</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="w-8 h-[3px] bg-[#fe6b10]"></span>
+              <span className="text-[#fe6b10] font-black uppercase tracking-[0.4em] text-[10px]">Premium Fleet</span>
+            </div>
+            <h2 className="text-6xl md:text-8xl font-black text-gray-900 leading-[0.85] tracking-tighter uppercase">
+              The <br />
+              <span className="text-gray-200">Catalog.</span>
             </h2>
           </div>
-          <div className="lg:text-right">
-            <p className="text-gray-400 text-lg max-w-sm ml-auto">
+          <div className="md:text-right border-l-[6px] md:border-l-0 md:border-r-[6px] border-[#fe6b10] pl-6 md:pr-6">
+            <p className="text-gray-500 font-bold max-w-xs md:ml-auto uppercase text-[11px] tracking-widest leading-loose">
               Standar kenyamanan tertinggi dengan unit terbaru yang siap menemani perjalanan Anda.
             </p>
           </div>
         </div>
 
-        {/* Grid: Clean Borders & Spacing */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-gray-100">
+        {/* --- DYNAMIC FLEX GRID --- */}
+        <div className="flex flex-wrap justify-center gap-8 lg:gap-10">
           {cars.map((car, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative bg-white border-r border-b border-gray-100 p-8 hover:bg-gray-50 transition-colors duration-500"
+              transition={{ duration: 0.6, delay: index * 0.05 }}
+              /* 
+                 border-2: Untuk mempertegas garis
+                 hover:shadow-[...]: Shadow berlapis agar terasa hidup (soft & deep)
+              */
+              className="group relative bg-white p-10 flex flex-col w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)] border-2 border-gray-100 rounded-[3rem] transition-all duration-500 hover:border-[#fe6b10]/20 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1),0_10px_20px_-10px_rgba(254,107,16,0.15)]"
             >
-              {/* Type Label */}
-              <div className="flex justify-between items-start mb-12">
-                <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest border-b border-gray-200 pb-1">
+              {/* Index Number Overlay */}
+              <span className="absolute top-10 right-10 text-7xl font-black text-gray-50 pointer-events-none group-hover:text-[#fe6b10]/5 transition-colors duration-500">
+                {index + 1 < 10 ? `0${index + 1}` : index + 1}
+              </span>
+
+              {/* Category & Zoom */}
+              <div className="flex justify-between items-start mb-8 relative z-10">
+                <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] bg-gray-900 px-4 py-1.5 rounded-full group-hover:bg-[#fe6b10] transition-colors">
                   {car.type}
                 </span>
                 <button 
                   onClick={() => setSelectedImg(car.image)}
-                  className="p-2 rounded-full bg-white shadow-sm opacity-0 group-hover:opacity-100 transition-opacity hover:text-[#fe6b10]"
+                  className="p-2.5 bg-gray-50 text-gray-400 rounded-full hover:bg-gray-900 hover:text-white transition-all shadow-sm"
                 >
                   <Maximize2 size={16} />
                 </button>
               </div>
 
-              {/* Image Center */}
+              {/* Car Image - Enhanced Hover */}
               <div 
-                className="relative h-48 mb-12 cursor-pointer group-hover:scale-110 transition-transform duration-700 ease-out"
+                className="relative h-48 mb-12 cursor-pointer transition-transform duration-700 ease-[scale(1.1,1.1,1,1)] group-hover:scale-110"
                 onClick={() => setSelectedImg(car.image)}
               >
-                <Image
-                  fill
-                  src={car.image}
-                  alt={car.name}
-                  className="object-contain"
-                />
+                <Image fill src={car.image} alt={car.name} className="object-contain" />
               </div>
 
-              {/* Info Bottom */}
-              <div className="relative z-10">
-                <h3 className="text-2xl font-black text-gray-900 uppercase tracking-tighter mb-2 italic leading-none">
+              {/* Info Section */}
+              <div className="mb-10 relative z-10">
+                <div className="flex items-center gap-2 mb-3">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#fe6b10] animate-pulse" />
+                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{car.seats} Passenger Seats</span>
+                </div>
+                <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-4 italic leading-none group-hover:text-[#fe6b10] transition-colors">
                   {car.name}
                 </h3>
-                <div className="flex items-baseline gap-2 mb-8">
-                  <span className="text-[10px] font-bold text-gray-400 uppercase">Start From</span>
-                  <span className="text-xl font-black text-[#fe6b10]">Rp {car.price}</span>
-                </div>
-
-                {/* Modern Link Button */}
-                <a
-                  href={`https://wa.me/6281349988354?text=Halo%20Artha%20Royal,%20Saya%20tertarik%20pesan%20*${car.name}*`}
-                  target="_blank"
-                  className="inline-flex items-center gap-4 group/btn"
-                >
-                  <div className="w-12 h-12 rounded-full bg-gray-900 flex items-center justify-center text-white group-hover/btn:bg-[#fe6b10] transition-all duration-300">
-                    <ArrowUpRight size={20} />
+                <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-[#fe6b10] group-hover:bg-orange-50/50 transition-colors">
+                  <span className="text-[9px] text-gray-400 uppercase tracking-[0.2em] font-black block mb-1">Official Rate</span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-2xl font-black text-gray-900 tracking-tighter">Rp {car.price}</span>
+                    <span className="text-[10px] font-black text-gray-400 uppercase">/ Day</span>
                   </div>
-                  <span className="font-black text-xs uppercase tracking-widest text-gray-900">Book Unit</span>
-                </a>
+                </div>
               </div>
 
-              {/* Decorative Number */}
-              <span className="absolute bottom-6 right-8 text-5xl font-black text-gray-50 z-0 group-hover:text-gray-100 transition-colors">
-                0{index + 1}
-              </span>
+              {/* Dual Admin Buttons - Thicker and Stronger */}
+              <div className="grid grid-cols-2 gap-4 mt-auto relative z-10">
+                <a
+                  href={`https://wa.me/${admin1}?text=Halo%20Admin%201,%20Saya%20mau%20booking%20mobil%20*${car.name}*`}
+                  target="_blank"
+                  className="flex flex-col items-center justify-center gap-1 bg-gray-900 text-white py-4 rounded-[1.5rem] hover:bg-[#fe6b10] transition-all duration-300 shadow-lg shadow-gray-200 hover:shadow-[#fe6b10]/30"
+                >
+                  <MessageCircle size={16} />
+                  <span className="font-black text-[9px] uppercase tracking-widest">Admin 1</span>
+                </a>
+                
+                <a
+                  href={`https://wa.me/${admin2}?text=Halo%20Admin%202,%20Saya%20mau%20booking%20mobil%20*${car.name}*`}
+                  target="_blank"
+                  className="flex flex-col items-center justify-center gap-1 border-2 border-gray-900 text-gray-900 py-4 rounded-[1.5rem] hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-sm"
+                >
+                  <MessageCircle size={16} />
+                  <span className="font-black text-[9px] uppercase tracking-widest">Admin 2</span>
+                </a>
+              </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Floating Call to Action */}
-        <div className="mt-20 border-2 border-gray-900 p-10 flex flex-col md:flex-row items-center justify-between rounded-[2rem] bg-white group hover:bg-gray-900 transition-colors duration-500">
-           <div className="flex items-center gap-6 mb-6 md:mb-0">
-              <div className="p-4 bg-[#fe6b10] rounded-2xl text-white">
-                <Info size={24} />
-              </div>
-              <p className="text-gray-900 group-hover:text-white font-bold text-lg md:max-w-md transition-colors">
-                Butuh layanan lepas kunci atau plus driver? Hubungi admin kami.
-              </p>
-           </div>
-           <a 
-             href="https://wa.me/6281349988354"
-             className="bg-[#fe6b10] text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest text-xs hover:scale-105 transition-transform shadow-lg shadow-[#fe6b10]/20"
-           >
-             Chat Konsultasi
-           </a>
-        </div>
       </div>
 
-      {/* LIGHTBOX / POP-UP */}
+      {/* LIGHTBOX */}
       <AnimatePresence>
         {selectedImg && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setSelectedImg(null)}
-            className="fixed inset-0 z-[999] bg-white/95 backdrop-blur-md flex items-center justify-center p-4 cursor-zoom-out"
+            className="fixed inset-0 z-[999] bg-white/98 backdrop-blur-2xl flex items-center justify-center p-6 cursor-zoom-out"
           >
-            <motion.div
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 50, opacity: 0 }}
-              className="relative max-w-6xl w-full h-[70vh] flex items-center justify-center"
-            >
-              <button 
-                onClick={() => setSelectedImg(null)}
-                className="absolute -top-16 right-0 p-4 bg-gray-900 text-white rounded-full hover:bg-[#fe6b10] transition-colors shadow-xl"
-              >
-                <X size={24} />
-              </button>
-              <div className="relative w-full h-full">
-                <Image src={selectedImg} alt="Detail" fill className="object-contain" quality={100} />
-              </div>
-            </motion.div>
+             <button className="absolute top-10 right-10 w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center shadow-2xl transition-transform active:scale-90 hover:bg-[#fe6b10]"><X size={32} /></button>
+             <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="relative w-full max-w-6xl h-[70vh]">
+                <Image src={selectedImg} alt="Preview" fill className="object-contain" quality={100} />
+             </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
