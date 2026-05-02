@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Maximize2, X, MessageCircle, Users, ArrowRight } from "lucide-react";
 
 const cars = [
-  { name: "New BRIO RS", image: "/images/5.PNG", price: "350.000", seats: "5", type: "City Car" },
+  { name: "New BRIO RS", image: "/images/5.png", price: "350.000", seats: "5", type: "City Car" },
   { name: "New Avanza", image: "/images/1.webp", price: "400.000", seats: "7", type: "Family MPV" },
   { name: "Innova Reborn", image: "/images/2.webp", price: "550.000", seats: "7", type: "Executive" },
   { name: "Fortuner GR Sport", image: "/images/6.webp", price: "1.500.000", seats: "7", type: "Luxury SUV" },
