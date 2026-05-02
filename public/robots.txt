@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://rentalmobilpnk.com
+
+# Sitemaps
+Sitemap: https://rentalmobilpnk.com/sitemap.xml

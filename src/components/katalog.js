@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Maximize2, X, Users, MessageCircle } from "lucide-react";
+import { Maximize2, X, MessageCircle, Users, ArrowRight } from "lucide-react";
 
 const cars = [
   { name: "New BRIO RS", image: "/images/5.PNG", price: "350.000", seats: "5", type: "City Car" },
@@ -18,128 +18,130 @@ const cars = [
 const Catalog = () => {
   const [selectedImg, setSelectedImg] = useState(null);
 
-  const admin1 = "6281349988354";
-  const admin2 = "6282152602121"; 
+  const admin1 = "6283873325988";
+  const admin2 = "6281349988354";
 
   return (
-    <section id="catalog" className="bg-white py-24 lg:py-40">
+    <section id="catalog" className="bg-[#f8fafc] py-24 lg:py-40">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         
-        {/* Header Section */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-24 gap-10">
-          <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="w-8 h-[3px] bg-[#fe6b10]"></span>
-              <span className="text-[#fe6b10] font-black uppercase tracking-[0.4em] text-[10px]">Premium Fleet</span>
-            </div>
-            <h2 className="text-6xl md:text-8xl font-black text-gray-900 leading-[0.85] tracking-tighter uppercase">
-              The <br />
-              <span className="text-gray-200">Catalog.</span>
-            </h2>
+        {/* Modern Clean Header */}
+        <div className="flex flex-col mb-20 gap-6">
+          <div className="inline-flex items-center gap-2 bg-orange-50 w-fit px-4 py-1.5 rounded-full border border-orange-100">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#fe6b10] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#fe6b10]"></span>
+            </span>
+            <span className="text-[#fe6b10] text-[11px] font-bold uppercase tracking-widest">Fleet Terawat & Ready</span>
           </div>
-          <div className="md:text-right border-l-[6px] md:border-l-0 md:border-r-[6px] border-[#fe6b10] pl-6 md:pr-6">
-            <p className="text-gray-500 font-bold max-w-xs md:ml-auto uppercase text-[11px] tracking-widest leading-loose">
-              Standar kenyamanan tertinggi dengan unit terbaru yang siap menemani perjalanan Anda.
+          
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8">
+            <h2 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-none">
+              Pilih Unit <br />
+              <span className="text-[#fe6b10]">Andalan Anda.</span>
+            </h2>
+            <p className="max-w-md text-slate-500 font-medium leading-relaxed">
+              Daftar harga transparan dengan unit keluaran terbaru. Pilih armada yang sesuai dengan kebutuhan perjalanan Anda.
             </p>
           </div>
         </div>
 
-        {/* --- DYNAMIC FLEX GRID --- */}
-        <div className="flex flex-wrap justify-center gap-8 lg:gap-10">
+        {/* --- MODERN CARD GRID --- */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cars.map((car, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.05 }}
-              /* 
-                 border-2: Untuk mempertegas garis
-                 hover:shadow-[...]: Shadow berlapis agar terasa hidup (soft & deep)
-              */
-              className="group relative bg-white p-10 flex flex-col w-full md:w-[calc(50%-20px)] lg:w-[calc(33.333%-27px)] border-2 border-gray-100 rounded-[3rem] transition-all duration-500 hover:border-[#fe6b10]/20 hover:-translate-y-3 hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1),0_10px_20px_-10px_rgba(254,107,16,0.15)]"
+              className="bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.12)] transition-all duration-500 group"
             >
-              {/* Index Number Overlay */}
-              <span className="absolute top-10 right-10 text-7xl font-black text-gray-50 pointer-events-none group-hover:text-[#fe6b10]/5 transition-colors duration-500">
-                {index + 1 < 10 ? `0${index + 1}` : index + 1}
-              </span>
+              {/* Image Area */}
+              <div className="relative h-64 bg-slate-50 flex items-center justify-center p-8 overflow-hidden">
+                <div className="absolute top-6 left-6 flex flex-col gap-2 z-10">
+                   <span className="px-3 py-1 bg-white shadow-sm border border-slate-100 rounded-lg text-[10px] font-bold text-slate-600 uppercase tracking-wider">
+                     {car.type}
+                   </span>
+                </div>
 
-              {/* Category & Zoom */}
-              <div className="flex justify-between items-start mb-8 relative z-10">
-                <span className="text-[10px] font-black text-white uppercase tracking-[0.2em] bg-gray-900 px-4 py-1.5 rounded-full group-hover:bg-[#fe6b10] transition-colors">
-                  {car.type}
-                </span>
                 <button 
                   onClick={() => setSelectedImg(car.image)}
-                  className="p-2.5 bg-gray-50 text-gray-400 rounded-full hover:bg-gray-900 hover:text-white transition-all shadow-sm"
+                  className="absolute top-6 right-6 p-2.5 bg-white shadow-sm border border-slate-100 rounded-xl text-slate-400 hover:text-[#fe6b10] hover:scale-110 transition-all z-10"
                 >
-                  <Maximize2 size={16} />
+                  <Maximize2 size={18} />
                 </button>
+
+                <Image 
+                  fill 
+                  src={car.image} 
+                  alt={car.name} 
+                  className="object-contain p-8 transform group-hover:scale-105 transition-transform duration-700 ease-in-out" 
+                />
               </div>
 
-              {/* Car Image - Enhanced Hover */}
-              <div 
-                className="relative h-48 mb-12 cursor-pointer transition-transform duration-700 ease-[scale(1.1,1.1,1,1)] group-hover:scale-110"
-                onClick={() => setSelectedImg(car.image)}
-              >
-                <Image fill src={car.image} alt={car.name} className="object-contain" />
-              </div>
-
-              {/* Info Section */}
-              <div className="mb-10 relative z-10">
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#fe6b10] animate-pulse" />
-                  <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{car.seats} Passenger Seats</span>
-                </div>
-                <h3 className="text-3xl font-black text-gray-900 uppercase tracking-tighter mb-4 italic leading-none group-hover:text-[#fe6b10] transition-colors">
-                  {car.name}
-                </h3>
-                <div className="bg-gray-50 p-4 rounded-2xl border-l-4 border-[#fe6b10] group-hover:bg-orange-50/50 transition-colors">
-                  <span className="text-[9px] text-gray-400 uppercase tracking-[0.2em] font-black block mb-1">Official Rate</span>
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-2xl font-black text-gray-900 tracking-tighter">Rp {car.price}</span>
-                    <span className="text-[10px] font-black text-gray-400 uppercase">/ Day</span>
+              {/* Content Area */}
+              <div className="p-8">
+                <div className="flex justify-between items-center mb-6">
+                  <h3 className="text-2xl font-bold text-slate-900 tracking-tight leading-none group-hover:text-[#fe6b10] transition-colors uppercase italic">
+                    {car.name}
+                  </h3>
+                  <div className="flex items-center gap-1 text-slate-400 font-bold text-[11px] bg-slate-50 px-2 py-1 rounded">
+                    <Users size={12} />
+                    <span>{car.seats}</span>
                   </div>
                 </div>
-              </div>
 
-              {/* Dual Admin Buttons - Thicker and Stronger */}
-              <div className="grid grid-cols-2 gap-4 mt-auto relative z-10">
-                <a
-                  href={`https://wa.me/${admin1}?text=Halo%20Admin%201,%20Saya%20mau%20booking%20mobil%20*${car.name}*`}
-                  target="_blank"
-                  className="flex flex-col items-center justify-center gap-1 bg-gray-900 text-white py-4 rounded-[1.5rem] hover:bg-[#fe6b10] transition-all duration-300 shadow-lg shadow-gray-200 hover:shadow-[#fe6b10]/30"
-                >
-                  <MessageCircle size={16} />
-                  <span className="font-black text-[9px] uppercase tracking-widest">Admin 1</span>
-                </a>
-                
-                <a
-                  href={`https://wa.me/${admin2}?text=Halo%20Admin%202,%20Saya%20mau%20booking%20mobil%20*${car.name}*`}
-                  target="_blank"
-                  className="flex flex-col items-center justify-center gap-1 border-2 border-gray-900 text-gray-900 py-4 rounded-[1.5rem] hover:bg-gray-900 hover:text-white transition-all duration-300 shadow-sm"
-                >
-                  <MessageCircle size={16} />
-                  <span className="font-black text-[9px] uppercase tracking-widest">Admin 2</span>
-                </a>
+                <div className="bg-slate-50/80 rounded-2xl p-4 flex items-center justify-between mb-8">
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Rate Per Hari</span>
+                  <div className="text-right">
+                    <span className="text-2xl font-black text-slate-900 tracking-tight">Rp {car.price}</span>
+                  </div>
+                </div>
+
+                {/* Dual Admin Buttons */}
+                <div className="grid grid-cols-2 gap-3">
+                  <a
+                    href={`https://wa.me/${admin1}?text=Halo%20Admin%201,%20Saya%20mau%20booking%20mobil%20*${car.name}*`}
+                    target="_blank"
+                    className="flex flex-col items-center gap-1.5 bg-[#fe6b10] text-white py-3.5 rounded-2xl font-bold text-[11px] uppercase tracking-wider shadow-lg shadow-orange-200 hover:bg-orange-600 transition-all active:scale-95"
+                  >
+                    <MessageCircle size={16} />
+                    <span>Admin 1</span>
+                  </a>
+                  
+                  <a
+                    href={`https://wa.me/${admin2}?text=Halo%20Admin%202,%20Saya%20mau%20booking%20mobil%20*${car.name}*`}
+                    target="_blank"
+                    className="flex flex-col items-center gap-1.5 border-2 border-slate-100 bg-white text-slate-600 py-3.5 rounded-2xl font-bold text-[11px] uppercase tracking-wider hover:border-slate-900 hover:text-slate-900 transition-all active:scale-95"
+                  >
+                    <MessageCircle size={16} />
+                    <span>Admin 2</span>
+                  </a>
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
 
-      {/* LIGHTBOX */}
+      {/* REFINED LIGHTBOX */}
       <AnimatePresence>
         {selectedImg && (
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
             onClick={() => setSelectedImg(null)}
-            className="fixed inset-0 z-[999] bg-white/98 backdrop-blur-2xl flex items-center justify-center p-6 cursor-zoom-out"
+            className="fixed inset-0 z-[999] bg-white/95 backdrop-blur-xl flex items-center justify-center p-6 cursor-zoom-out"
           >
-             <button className="absolute top-10 right-10 w-16 h-16 bg-gray-900 text-white rounded-full flex items-center justify-center shadow-2xl transition-transform active:scale-90 hover:bg-[#fe6b10]"><X size={32} /></button>
-             <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="relative w-full max-w-6xl h-[70vh]">
-                <Image src={selectedImg} alt="Preview" fill className="object-contain" quality={100} />
-             </motion.div>
+            <button className="absolute top-6 right-6 w-12 h-12 bg-slate-900 text-white rounded-2xl flex items-center justify-center shadow-xl">
+              <X size={24} />
+            </button>
+            <motion.div 
+              initial={{ scale: 0.9, y: 20 }} 
+              animate={{ scale: 1, y: 0 }}
+              className="relative w-full max-w-5xl h-[60vh]"
+            >
+              <Image src={selectedImg} alt="Preview" fill className="object-contain" />
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

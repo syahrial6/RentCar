@@ -6,8 +6,8 @@ import { Instagram, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const admin1 = "6281349988354";
-  const admin2 = "6282152602121"; // Ganti sesuai nomor Admin 2
+  const admin1 = "6283873325988";
+  const admin2 = "6281349988354";
 
   return (
     <footer id="contact" className="bg-white pb-10 pt-4 font-primary">
@@ -59,7 +59,7 @@ const Footer = () => {
                       <MapPin size={14} />
                     </div>
                     <span className="text-gray-400 text-[11px] font-bold leading-relaxed">
-                      Gg. Matematika <br /> Kota Pontianak, Kalimantan Barat
+                      Jl. Reformasi, Gg. Matematika <br /> Kota Pontianak, Kalimantan Barat
                     </span>
                   </div>
                 </div>
