@@ -32,8 +32,10 @@
   }
 }
 
-html {
+html,
+body {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* Custom Scrollbar agar lebih elegan */
