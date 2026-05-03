@@ -18,95 +18,117 @@ const cars = [
 const Catalog = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const admin1 = "6283873325988";
-  const admin2 = "6281349988354";
+  const admin2 = "6282152602121";
 
   return (
-    <section id="catalog" className="bg-white py-20 lg:py-32 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="catalog" className="bg-slate-50 py-24 lg:py-32 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         
         {/* Header Section */}
-        <div className="flex flex-col mb-16 gap-4">
-          <span className="text-[#fe6b10] text-xs font-black uppercase tracking-[0.3em] block">Premium Fleet</span>
-          <h2 className="text-4xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none">
+        <div className="mb-16 lg:mb-24 text-center md:text-left">
+          <motion.span 
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="text-[#fe6b10] text-sm font-black uppercase tracking-[0.4em] block mb-4"
+          >
+            Premium Fleet
+          </motion.span>
+          
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter leading-none mb-8"
+          >
             Pilih Unit <br />
             <span className="text-[#fe6b10]">Andalan.</span>
-          </h2>
-          <div className="w-16 h-1 bg-slate-100 mt-4" />
+          </motion.h2>
+
+          {/* Kalimat Pemanis Baru */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="flex items-center gap-4 md:gap-6"
+          >
+            <div className="w-12 h-[2px] bg-slate-300 hidden md:block" />
+            <p className="text-slate-500 max-w-xl text-lg md:text-xl font-medium leading-relaxed italic uppercase tracking-tight">
+              &ldquo;Kendaraan yang Anda pilih, menentukan kenyamanan berkendara Anda.&rdquo;
+            </p>
+          </motion.div>
         </div>
 
         {/* Catalog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
           {cars.map((car, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="flex flex-col group"
+              transition={{ delay: index * 0.1 }}
+              className="bg-white rounded-[2.5rem] p-5 lg:p-7 border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 group"
             >
-              {/* Image Card */}
-              <div className="relative aspect-[4/3] w-full bg-[#f8f9fa] rounded-[2rem] overflow-hidden border border-slate-100 transition-all duration-500 hover:shadow-xl">
-                
-                {/* Type Badge */}
-                <div className="absolute top-5 left-5 z-10">
-                  <span className="px-3 py-1.5 bg-white/90 backdrop-blur shadow-sm rounded-lg text-[9px] font-black text-slate-900 uppercase tracking-widest">
-                    {car.type}
-                  </span>
-                </div>
-
-                {/* Quick View - Hidden on Small Mobile for better UI */}
+              {/* Card Header: Type & Expand */}
+              <div className="flex justify-between items-center mb-6">
+                <span className="px-4 py-1.5 bg-slate-900 text-white text-[10px] font-black uppercase tracking-widest rounded-full shadow-lg shadow-slate-200">
+                  {car.type}
+                </span>
                 <button
                   onClick={() => setSelectedImg(car.image)}
-                  className="absolute top-5 right-5 z-10 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md text-slate-400 hover:text-[#fe6b10] transition-colors lg:opacity-0 lg:group-hover:opacity-100"
+                  className="w-10 h-10 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:text-[#fe6b10] hover:bg-white hover:shadow-md transition-all"
                 >
                   <Maximize2 size={16} />
                 </button>
-
-                <div className="relative w-full h-full p-8 lg:p-12">
-                  <Image
-                    src={car.image}
-                    alt={car.name}
-                    fill
-                    className="object-contain transition-transform duration-700 lg:group-hover:scale-110"
-                  />
-                </div>
               </div>
 
-              {/* Info & Action Section - Mobile Always Visible */}
-              <div className="mt-6 space-y-5 px-1">
-                <div className="flex justify-between items-start">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl font-black text-slate-900 tracking-tighter uppercase italic">
-                      {car.name}
-                    </h3>
-                    <div className="flex items-center gap-2 text-slate-400">
-                      <Users size={14} />
-                      <span className="text-[11px] font-bold uppercase tracking-widest">{car.seats} Seats</span>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-[9px] font-black text-[#fe6b10] uppercase tracking-widest leading-none mb-1">Mulai Dari</p>
-                    <p className="text-xl font-black text-slate-900 tracking-tight leading-none italic">Rp {car.price}</p>
+              {/* Image Section */}
+              <div className="relative aspect-[16/10] mb-8">
+                <Image
+                  src={car.image}
+                  alt={car.name}
+                  fill
+                  className="object-contain transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+
+              {/* Info Section */}
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic leading-none mb-3">
+                    {car.name}
+                  </h3>
+                  <div className="flex items-center">
+                    <span className="text-2xl font-black text-[#fe6b10] tracking-tighter leading-none">
+                      Rp {car.price}
+                    </span>
+                    <span className="flex items-center text-slate-400 text-[11px] font-black uppercase tracking-[0.1em] leading-none border-none ml-1 mt-1">
+                      / Hari
+                    </span>
                   </div>
                 </div>
 
-                {/* Booking Buttons - Optimized for Touch */}
-                <div className="grid grid-cols-2 gap-3 pt-2 border-t border-slate-50">
+                <div className="flex items-center gap-2 text-slate-500 pb-6 border-b border-slate-100">
+                  <Users size={18} className="text-[#fe6b10]" />
+                  <span className="text-xs font-black uppercase tracking-widest">{car.seats} Penumpang</span>
+                </div>
+
+                {/* Booking Buttons with Neon Glass Effect */}
+                <div className="flex flex-col gap-3">
                   <a
                     href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name}`}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 bg-slate-900 text-white py-4 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:bg-[#fe6b10] transition-all active:scale-95"
+                    className="flex items-center justify-center gap-3 bg-slate-900/90 backdrop-blur-md text-white py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:bg-slate-900 hover:shadow-[0_0_20px_rgba(15,23,42,0.3)] active:scale-95"
                   >
-                    <MessageCircle size={14} />
-                    Admin 1
+                    <MessageCircle size={18} />
+                    Chat Admin 1
                   </a>
                   <a
                     href={`https://wa.me/${admin2}?text=Halo Admin 2, Saya mau booking mobil ${car.name}`}
                     target="_blank"
-                    className="flex items-center justify-center gap-2 bg-white border border-slate-200 text-slate-900 py-4 rounded-xl font-bold text-[10px] uppercase tracking-widest hover:border-slate-900 transition-all active:scale-95"
+                    className="flex items-center justify-center gap-3 bg-white/50 backdrop-blur-md border-2 border-slate-100 text-slate-900 py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:border-[#fe6b10] hover:text-[#fe6b10] hover:shadow-[0_0_20px_rgba(254,107,16,0.15)] active:scale-95"
                   >
-                    <MessageCircle size={14} />
-                    Admin 2
+                    <MessageCircle size={18} />
+                    Chat Admin 2
                   </a>
                 </div>
               </div>
@@ -116,46 +138,33 @@ const Catalog = () => {
       </div>
 
       {/* Lightbox Overlay */}
-<AnimatePresence>
-  {selectedImg && (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      // Menutup saat area kosong di klik
-      onClick={() => setSelectedImg(null)} 
-      className="fixed inset-0 z-[999] bg-white/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-10 cursor-zoom-out"
-    >
-      {/* Tombol Close dengan fungsi onClick */}
-      <button 
-        onClick={(e) => {
-          e.stopPropagation(); // Mencegah bubbling ke div induk
-          setSelectedImg(null);
-        }}
-        className="absolute top-8 right-8 w-12 h-12 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-xl hover:bg-[#fe6b10] transition-colors z-[1000] cursor-pointer"
-      >
-        <X size={24} />
-      </button>
-
-      <motion.div
-        initial={{ scale: 0.9, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        exit={{ scale: 0.9, opacity: 0 }}
-        // Mencegah klik pada gambar ikut menutup (opsional)
-        onClick={(e) => e.stopPropagation()} 
-        className="relative w-full h-full max-w-5xl cursor-default"
-      >
-        <Image 
-          src={selectedImg} 
-          alt="Preview" 
-          fill 
-          className="object-contain drop-shadow-2xl" 
-          priority
-        />
-      </motion.div>
-    </motion.div>
-  )}
-</AnimatePresence>
+      <AnimatePresence>
+        {selectedImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[1000] bg-white/98 backdrop-blur-xl flex items-center justify-center p-4"
+            onClick={() => setSelectedImg(null)}
+          >
+            <button 
+              onClick={(e) => { e.stopPropagation(); setSelectedImg(null); }}
+              className="absolute top-6 right-6 w-14 h-14 bg-slate-900 text-white rounded-full flex items-center justify-center shadow-2xl active:scale-90 z-[1010]"
+            >
+              <X size={32} />
+            </button>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              onClick={(e) => e.stopPropagation()} 
+              className="relative w-full h-[70vh] max-w-5xl pointer-events-none"
+            >
+              <Image src={selectedImg} alt="Preview" fill className="object-contain" priority />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

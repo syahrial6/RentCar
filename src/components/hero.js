@@ -14,7 +14,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   const admin1 = "6283873325988";
-  const admin2 = "6281349988354";
+  const admin2 = "6282152602121";
 
   return (
     <section className="relative min-h-[90vh] flex items-center bg-white overflow-hidden pt-20 w-full">

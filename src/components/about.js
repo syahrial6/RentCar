@@ -100,7 +100,7 @@ const About = () => {
               className="space-y-6 text-slate-500 text-lg leading-relaxed"
             >
               <p className="border-l-4 border-[#fe6b10] pl-6 italic font-medium text-slate-800">
-                &ldquo;Setiap detik perjalanan Anda adalah prioritas kami. Kami memastikan Anda sampai dengan martabat.&rdquo;
+                &ldquo;Kenyamanan Anda adalah standar kami.<br/>Hadirkan pengalaman berkendara kelas atas dalam setiap perjalanan.&rdquo;
               </p>
               <p className="text-base">
                 <span className="text-slate-900 font-bold">Artha Royal Group</span> hadir sebagai partner mobilitas strategis bagi Anda yang menghargai waktu dan privasi tinggi di Kalimantan Barat.

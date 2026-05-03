@@ -7,7 +7,7 @@ import { MapPin, Mail, Instagram, ArrowUpRight, MessageCircle, Phone, ArrowRight
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   const admin1 = "6283873325988";
-  const admin2 = "6281349988354";
+  const admin2 = "6282152602121";
   const googleMapsUrl = "https://maps.app.goo.gl/YGRWoGsofYESRvHE9";
   const instagramUrl = "https://www.instagram.com/argroup.ptk/";
 
