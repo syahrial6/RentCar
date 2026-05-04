@@ -34,7 +34,7 @@ const About = () => {
               <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent z-10" />
 
               <Image
-                src="/images/hero.webp" 
+                src="/images/about.webp" 
                 alt="Luxury Fleet"
                 width={800}
                 height={1000}

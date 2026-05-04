@@ -3,16 +3,17 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Maximize2, X, MessageCircle, Users } from "lucide-react";
+import { Maximize2, X, MessageCircle, Users, CheckCircle2 } from "lucide-react";
 
 const cars = [
-  { name: "New BRIO RS", image: "/images/5.png", price: "350.000", seats: "5", type: "City Car" },
-  { name: "New Avanza", image: "/images/1.webp", price: "400.000", seats: "7", type: "Family MPV" },
-  { name: "Innova Reborn", image: "/images/2.webp", price: "550.000", seats: "7", type: "Executive" },
-  { name: "Fortuner GR Sport", image: "/images/6.webp", price: "1.500.000", seats: "7", type: "Luxury SUV" },
-  { name: "Hilux DC 4x4", image: "/images/7.webp", price: "1.500.000", seats: "5", type: "Adventure" },
-  { name: "Hiace Commuter", image: "/images/8.webp", price: "1.750.000", seats: "15", type: "Group Travel" },
-  { name: "Alphard Transformer", image: "/images/9.webp", price: "4.500.000", seats: "7", type: "Presidential" },
+  { name: "New BRIO RS", image: "/images/brio.webp", price: "350.000", seats: "5", type: "City Car" },
+  { name: "New Avanza", image: "/images/avanza.webp", price: "350.000", seats: "7", type: "Family MPV" },
+  { name: "Innova Reborn", image: "/images/innova.webp", price: "500.000", seats: "7", type: "Executive" },
+  { name: "Innova Zenix", image: "/images/zenix.webp", price: "600.000", seats: "7", type: "Modern MPV" }, 
+  { name: "Fortuner GR Sport", image: "/images/fortuner.webp", price: "1.500.000", seats: "7", type: "Luxury SUV" },
+  { name: "Hilux DC 4x4", image: "/images/hilux.webp", price: "1.500.000", seats: "5", type: "Adventure" },
+  { name: "Hiace Commuter", image: "/images/hiace.webp", price: "1.400.000", seats: "15", type: "Group Travel", includeDriver: true },
+  { name: "Alphard Transformer", image: "/images/alphard.webp", price: "4.000.000", seats: "7", type: "Presidential" },
 ];
 
 const Catalog = () => {
@@ -43,7 +44,6 @@ const Catalog = () => {
             <span className="text-[#fe6b10]">Andalan.</span>
           </motion.h2>
 
-          {/* Kalimat Pemanis Baru */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ const Catalog = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-[2.5rem] p-5 lg:p-7 border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 group"
+              className="bg-white rounded-[2.5rem] p-5 lg:p-7 border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 group relative"
             >
               {/* Card Header: Type & Expand */}
               <div className="flex justify-between items-center mb-6">
@@ -107,12 +107,22 @@ const Catalog = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 text-slate-500 pb-6 border-b border-slate-100">
-                  <Users size={18} className="text-[#fe6b10]" />
-                  <span className="text-xs font-black uppercase tracking-widest">{car.seats} Penumpang</span>
+                <div className="flex flex-col gap-3 pb-6 border-b border-slate-100">
+                  <div className="flex items-center gap-2 text-slate-500">
+                    <Users size={18} className="text-[#fe6b10]" />
+                    <span className="text-xs font-black uppercase tracking-widest">{car.seats} Penumpang</span>
+                  </div>
+                  
+                  {/* Badge Khusus Hiace (Include Driver) */}
+                  {car.includeDriver && (
+                    <div className="flex items-center gap-2 text-emerald-600 bg-emerald-50 w-fit px-3 py-1 rounded-lg">
+                      <CheckCircle2 size={14} />
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Sudah Termasuk Driver</span>
+                    </div>
+                  )}
                 </div>
 
-                {/* Booking Buttons with Neon Glass Effect */}
+                {/* Booking Buttons */}
                 <div className="flex flex-col gap-3">
                   <a
                     href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name}`}
