@@ -9,20 +9,27 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
+// 1. Metadata tanpa viewport
 export const metadata = {
   title: "Artha Royal Group | Sewa Mobil Pontianak Terpercaya",
   description:
     "Layanan sewa mobil premium di Pontianak. Artha Royal Group menyediakan armada terlengkap dan resmi untuk kebutuhan bisnis dan keluarga Anda.",
-  viewport: "width=device-width, initial-scale=1, maximum-scale=5",
   robots: "index, follow",
   verification: {
     google: "qCRe_lfvgC1b9F50m9ICzP4d-kElThyrzFoFetwqAvU",
   },
 };
 
+// 2. Export viewport secara terpisah (Solusi untuk Warning)
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="id" suppressHydrationWarning className={poppins.variable}>
+    <html lang="id" suppressHydrationWarning className={poppins.variable} data-scroll-behavior="smooth">
       <head>
         <Script 
           async 

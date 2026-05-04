@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-4 mb-8 p-2 pr-6 bg-slate-50 rounded-2xl border border-slate-100">
               <div className="relative w-14 h-14 bg-white shadow-sm rounded-xl p-2">
-                <Image src="/images/logo.png" fill alt="Logo" className="object-contain" />
+                <Image src="/images/logo.png" fill alt="Logo" className="object-contain "sizes="40px" />
               </div>
               <div>
                 <h3 className="text-xl font-black tracking-tight text-slate-900 leading-none uppercase">Artha <span className="text-[#fe6b10]">Royal</span> </h3>

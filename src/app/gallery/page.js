@@ -15,7 +15,7 @@ const galleryData = [
   { id: 6, src: "https://picsum.photos/id/28/800/700", title: "Fleet Maintenance", location: "Workshop", height: "h-[320px]" },
 ];
 
-export default function GalleryPage() {
+const GalleryPage = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -44,7 +44,7 @@ export default function GalleryPage() {
       
       {/* --- HIGH-PERFORMANCE SMOKED GLASS BUTTON --- */}
       <nav 
-        className={`fixed bottom-10 left-6 md:left-10 z-[80] transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] ${
+        className={`fixed bottom-10 left-6 md:left-10 z-[80] transition-all duration-500 ease-out ${
           isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-12 opacity-0 scale-90 pointer-events-none"
         }`}
       >
@@ -155,3 +155,5 @@ export default function GalleryPage() {
     </main>
   );
 }
+
+export default GalleryPage;

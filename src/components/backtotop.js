@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { ChevronUp } from "lucide-react";
 
-export default function BackToTop() {
+const BackToTop = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function BackToTop() {
       className={`fixed bottom-10 right-6 md:right-10 z-[90] 
         w-14 h-14 flex items-center justify-center
         rounded-2xl border border-white/20 shadow-2xl
-        bg-gray-900/90 text-white transition-all duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)]
+        bg-gray-900/90 text-white transition-all duration-500 ease-out
         ${showButton 
           ? "opacity-100 translate-y-0 scale-100 visible" 
           : "opacity-0 translate-y-10 scale-50 invisible pointer-events-none"
@@ -47,3 +47,5 @@ export default function BackToTop() {
     </button>
   );
 }
+
+export default BackToTop;
