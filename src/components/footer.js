@@ -106,12 +106,17 @@ const Footer = () => {
             <span className="text-[10px] font-medium text-slate-400 uppercase tracking-widest">Pontianak Transport</span>
           </div>
 
-          <div className="flex items-center group cursor-default">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight">
-              Built by{" "}
-              <span className="font-black text-slate-900 group-hover:text-[#fe6b10] transition-colors ml-0.5 tracking-tighter">
+          <div className="flex items-center group">
+            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tight cursor-default">
+              Designed by{" "}
+              <a 
+                href="https://rizkifajarsetyawan.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-black text-slate-900 group-hover:text-[#fe6b10] transition-colors ml-0.5 tracking-tighter cursor-pointer"
+              >
                 EUNOIA DIGITAL CREATIONS
-              </span>
+              </a>
             </p>
           </div>
         </div>
