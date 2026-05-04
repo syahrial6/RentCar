@@ -26,8 +26,8 @@ const Footer = () => {
                 <Image src="/images/logo.png" fill alt="Logo" className="object-contain" />
               </div>
               <div>
-                <h3 className="text-xl font-black tracking-tight text-slate-900 leading-none">ARTHA ROYAL</h3>
-                <span className="text-[#fe6b10] text-[9px] font-black tracking-[0.4em] uppercase">Group</span>
+                <h3 className="text-xl font-black tracking-tight text-slate-900 leading-none uppercase">Artha <span className="text-[#fe6b10]">Royal</span> </h3>
+                <span className="text-slate-500 text-[9px] font-black tracking-[0.4em] uppercase">Group</span>
               </div>
             </div>
             
