@@ -13,7 +13,7 @@ import {
 import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
-  const admin1 = "6283873325988";
+  const admin1 = "6281349988354";
   const admin2 = "6282152602121";
 
   return (
