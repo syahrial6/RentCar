@@ -3,17 +3,28 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { Maximize2, X, MessageCircle, Users, CheckCircle2 } from "lucide-react";
+import { 
+  Maximize2, 
+  X, 
+  MessageCircle, 
+  Users, 
+  CheckCircle2, 
+  Fuel, 
+  Settings2, 
+  Zap 
+} from "lucide-react";
 
 const cars = [
-  { name: "New BRIO RS", image: "/images/brio.webp", price: "350.000", seats: "5", type: "City Car" },
-  { name: "New Avanza", image: "/images/avanza.webp", price: "350.000", seats: "7", type: "Family MPV" },
-  { name: "Innova Reborn", image: "/images/innova.webp", price: "500.000", seats: "7", type: "Executive" },
-  { name: "Innova Zenix", image: "/images/zenix.webp", price: "600.000", seats: "7", type: "Modern MPV" }, 
-  { name: "Fortuner GR Sport", image: "/images/fortuner.webp", price: "1.500.000", seats: "7", type: "Luxury SUV" },
-  { name: "Hilux DC 4x4", image: "/images/hilux.webp", price: "1.500.000", seats: "5", type: "Adventure" },
-  { name: "Hiace Commuter", image: "/images/hiace.webp", price: "1.400.000", seats: "15", type: "Group Travel", includeDriver: true },
-  { name: "Alphard Transformer", image: "/images/alphard.webp", price: "4.000.000", seats: "7", type: "Presidential" },
+  { name: "Avanza Facelift", image: "/images/avanza_facelift.webp", price: "300.000", seats: "7", type: "Family MPV", transmission: "MT", fuel: "Bensin" },
+  { name: "New BRIO RS", image: "/images/brio.webp", price: "350.000", seats: "5", type: "City Car", transmission: "AT", fuel: "Bensin" },
+  { name: "New Avanza", image: "/images/avanza.webp", price: "350.000", seats: "7", type: "Family MPV", transmission: "AT/MT", fuel: "Bensin" },
+  { name: "Innova Reborn", image: "/images/innova.webp", price: "500.000", seats: "7", type: "Executive", transmission: "AT/MT", fuel: "Diesel" },
+  { name: "Innova Zenix HEV", image: "/images/zenix_hybrid.webp", price: "700.000", seats: "7", type: "Modern MPV", transmission: "AT", fuel: "Bensin", isHybrid: true }, 
+  { name: "Innova Zenix", image: "/images/zenix.webp", price: "600.000", seats: "7", type: "Modern MPV", transmission: "AT", fuel: "Bensin" }, 
+  { name: "Fortuner GR Sport", image: "/images/fortuner.webp", price: "1.500.000", seats: "7", type: "Luxury SUV", transmission: "AT", fuel: "Diesel" },
+  { name: "Hilux DC 4x4", image: "/images/hilux.webp", price: "1.500.000", seats: "5", type: "Adventure", transmission: "MT", fuel: "Diesel" },
+  { name: "Hiace Commuter", image: "/images/hiace.webp", price: "1.400.000", seats: "15", type: "Group Travel", transmission: "MT", fuel: "Diesel", includeDriver: true },
+  { name: "Alphard Transformer", image: "/images/alphard.webp", price: "4.000.000", seats: "7", type: "Presidential", transmission: "AT", fuel: "Bensin" },
 ];
 
 const Catalog = () => {
@@ -66,7 +77,9 @@ const Catalog = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-[2.5rem] p-5 lg:p-7 border border-slate-100 hover:shadow-2xl hover:shadow-slate-200 transition-all duration-500 group relative"
+              className={`bg-white rounded-[2.5rem] p-5 lg:p-7 border transition-all duration-500 group relative flex flex-col ${
+                car.isHybrid ? 'border-blue-100 shadow-lg shadow-blue-50' : 'border-slate-100 hover:shadow-2xl hover:shadow-slate-200'
+              }`}
             >
               {/* Card Header: Type & Expand */}
               <div className="flex justify-between items-center mb-6">
@@ -92,8 +105,8 @@ const Catalog = () => {
               </div>
 
               {/* Info Section */}
-              <div className="space-y-6">
-                <div>
+              <div className="flex-grow flex flex-col">
+                <div className="mb-6">
                   <h3 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic leading-none mb-3">
                     {car.name}
                   </h3>
@@ -101,33 +114,62 @@ const Catalog = () => {
                     <span className="text-2xl font-black text-[#fe6b10] tracking-tighter leading-none">
                       Rp {car.price}
                     </span>
-                    <span className="flex items-center text-slate-400 text-[11px] font-black uppercase tracking-[0.1em] leading-none border-none ml-1 mt-1">
+                    <span className="text-slate-400 text-[11px] font-black uppercase tracking-[0.1em] ml-1 mt-1">
                       / Hari
                     </span>
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-3 pb-6 border-b border-slate-100">
-                  <div className="flex items-center gap-2 text-slate-500">
-                    <Users size={18} className="text-[#fe6b10]" />
-                    <span className="text-xs font-black uppercase tracking-widest">{car.seats} Penumpang</span>
+                {/* Specification Grid */}
+                <div className="grid grid-cols-3 gap-2 py-6 border-y border-slate-100 mb-6">
+                  <div className="flex flex-col items-center gap-2 text-center border-r border-slate-100">
+                    <Users size={20} className="text-[#fe6b10]" />
+                    <span className="text-[10px] font-black uppercase tracking-tighter text-slate-900">{car.seats} Kursi</span>
                   </div>
+                  <div className="flex flex-col items-center gap-2 text-center border-r border-slate-100">
+                    <Settings2 size={20} className="text-[#fe6b10]" />
+                    <span className="text-[10px] font-black uppercase tracking-tighter text-slate-900">{car.transmission}</span>
+                  </div>
+                  <div className="flex flex-col items-center gap-2 text-center">
+                    <Fuel size={20} className="text-[#fe6b10]" />
+                    <span className="text-[10px] font-black uppercase tracking-tighter text-slate-900">{car.fuel}</span>
+                  </div>
+                </div>
+
+                {/* Badges Container - Diubah jadi full width */}
+                <div className="flex flex-col gap-2 mb-3">
+                  {car.isHybrid && (
+                    <div className="flex items-center justify-center gap-3 bg-blue-50 text-blue-600 w-full py-2.5 rounded-xl border border-blue-100">
+                      <Zap size={14} className="fill-blue-600" />
+                      <span className="text-[10px] font-black uppercase tracking-[0.15em]">
+                        Hybrid Technology
+                      </span>
+                    </div>
+                  )}
                   
-                  {/* Badge Khusus Hiace (Include Driver) */}
                   {car.includeDriver && (
-                    <div className="flex items-center gap-2 text-emerald-600 bg-emerald-50 w-fit px-3 py-1 rounded-lg">
+                    <div className="flex items-center justify-center gap-3 bg-emerald-50 text-emerald-700 w-full py-2.5 rounded-xl border border-emerald-100">
                       <CheckCircle2 size={14} />
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">Sudah Termasuk Driver</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.15em]">
+                        Sudah Termasuk Driver
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Placeholder jika tidak ada badge khusus agar tinggi kartu tetap konsisten */}
+                  {!car.isHybrid && !car.includeDriver && (
+                    <div className="py-2.5 opacity-0 invisible">
+                      <span className="text-[10px]">&nbsp;</span>
                     </div>
                   )}
                 </div>
 
                 {/* Booking Buttons */}
-                <div className="flex flex-col gap-3">
+                <div className="mt-auto flex flex-col gap-3">
                   <a
                     href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name}`}
                     target="_blank"
-                    className="flex items-center justify-center gap-3 bg-slate-900/90 backdrop-blur-md text-white py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:bg-slate-900 hover:shadow-[0_0_20px_rgba(15,23,42,0.3)] active:scale-95"
+                    className="flex items-center justify-center gap-3 bg-slate-900 text-white py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:bg-[#fe6b10] hover:shadow-[0_10px_20px_rgba(254,107,16,0.2)] active:scale-95"
                   >
                     <MessageCircle size={18} />
                     Chat Admin 1
@@ -135,7 +177,7 @@ const Catalog = () => {
                   <a
                     href={`https://wa.me/${admin2}?text=Halo Admin 2, Saya mau booking mobil ${car.name}`}
                     target="_blank"
-                    className="flex items-center justify-center gap-3 bg-white/50 backdrop-blur-md border-2 border-slate-100 text-slate-900 py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:border-[#fe6b10] hover:text-[#fe6b10] hover:shadow-[0_0_20px_rgba(254,107,16,0.15)] active:scale-95"
+                    className="flex items-center justify-center gap-3 bg-white border-2 border-slate-100 text-slate-900 py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:border-[#fe6b10] hover:text-[#fe6b10] active:scale-95"
                   >
                     <MessageCircle size={18} />
                     Chat Admin 2
