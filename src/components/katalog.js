@@ -29,7 +29,7 @@ const cars = [
 
 const Catalog = () => {
   const [selectedImg, setSelectedImg] = useState(null);
-  const admin1 = "6283873325988";
+  const admin1 = "6281349988354";
   const admin2 = "6282152602121";
 
   return (
@@ -110,6 +110,7 @@ const Catalog = () => {
                   <h3 className="text-3xl font-black text-slate-900 tracking-tight uppercase italic leading-none mb-3">
                     {car.name}
                   </h3>
+                  
                   <div className="flex items-center">
                     <span className="text-2xl font-black text-[#fe6b10] tracking-tighter leading-none">
                       Rp {car.price}
@@ -117,7 +118,9 @@ const Catalog = () => {
                     <span className="text-slate-400 text-[11px] font-black uppercase tracking-[0.1em] ml-1 mt-1">
                       / Hari
                     </span>
+                  
                   </div>
+                
                 </div>
 
                 {/* Specification Grid */}
