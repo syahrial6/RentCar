@@ -45,20 +45,20 @@ const Hero = () => {
               </div>
 
               {/* Headline */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 tracking-tighter uppercase mb-6 leading-[1.1]">
-                The New <br />
-                <span className="text-[#fe6b10]">
-                  <Typewriter
-                    words={["Standard.", "Comfort.", "Elegance."]}
-                    loop={0}
-                    cursor
-                    cursorStyle="|"
-                    typeSpeed={70}
-                    deleteSpeed={50}
-                    delaySpeed={2000}
-                  />
-                </span>
-              </h1>
+             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 tracking-tighter uppercase mb-6 leading-[1.1]">
+  Rental Mobil Pontianak <br />
+  <span className="text-[#fe6b10]">
+    <Typewriter
+      words={["Terpercaya.", "Premium.", "24 Jam."]}
+      loop={0}
+      cursor
+      cursorStyle="|"
+      typeSpeed={70}
+      deleteSpeed={50}
+      delaySpeed={2000}
+    />
+  </span>
+</h1>
 
               <p className="max-w-xl text-slate-500 text-base md:text-lg lg:text-xl leading-relaxed mb-10 font-medium mx-auto lg:mx-0">
                 Solusi mobilitas premium di Pontianak. Kami menyediakan armada terbaik untuk menunjang perjalanan bisnis maupun personal Anda.

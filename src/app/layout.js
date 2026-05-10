@@ -11,14 +11,37 @@ const poppins = Poppins({
 
 // 1. Metadata tanpa viewport
 export const metadata = {
-  title: "Artha Royal Group | Sewa Mobil Pontianak Terpercaya",
+  title: "Rental Mobil Pontianak | Artha Royal Group — Mulai Rp 300rb/Hari",
   description:
-    "Layanan sewa mobil premium di Pontianak. Artha Royal Group menyediakan armada terlengkap dan resmi untuk kebutuhan bisnis dan keluarga Anda.",
+    "Sewa mobil Pontianak terpercaya. Tersedia Avanza, Innova, Fortuner, Alphard, Hiace — dengan/tanpa driver. Artha Royal Group melayani 24 jam di Pontianak & Kalimantan Barat.",
+  keywords:
+    "rental mobil pontianak, sewa mobil pontianak, rental mobil pontianak murah, sewa avanza pontianak, rental innova pontianak, rental fortuner pontianak, rental hiace pontianak",
   robots: "index, follow",
   verification: {
     google: "qCRe_lfvgC1b9F50m9ICzP4d-kElThyrzFoFetwqAvU",
   },
+  alternates: {
+    canonical: "https://www.rentalmobilpnk.com",
+  },
+  openGraph: {
+    title: "Rental Mobil Pontianak — Artha Royal Group",
+    description:
+      "Sewa mobil premium di Pontianak mulai Rp 300.000/hari. Avanza, Innova, Fortuner, Alphard, Hiace. Driver profesional, layanan 24 jam.",
+    url: "https://www.rentalmobilpnk.com",
+    siteName: "Artha Royal Group",
+    locale: "id_ID",
+    type: "website",
+    images: [
+      {
+        url: "https://www.rentalmobilpnk.com/images/about.webp",
+        width: 1200,
+        height: 630,
+        alt: "Rental Mobil Pontianak — Artha Royal Group",
+      },
+    ],
+  },
 };
+
 
 // 2. Export viewport secara terpisah (Solusi untuk Warning)
 export const viewport = {
