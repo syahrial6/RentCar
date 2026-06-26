@@ -230,6 +230,7 @@ const Navbar = () => {
               </div>
               <a
                 href="https://wa.me/6283873325988"
+                onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                 className="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-[#fe6b10]"
               >
                 <MessageCircle

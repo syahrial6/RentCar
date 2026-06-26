@@ -54,9 +54,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id" suppressHydrationWarning className={poppins.variable} data-scroll-behavior="smooth">
       <head>
-        <Script 
-          async 
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17104611193" 
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-16724511690"
           strategy="afterInteractive"
         />
         <Script
@@ -67,7 +67,26 @@ export default function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
+              gtag('config', 'AW-16724511690');
               gtag('config', 'AW-17104611193');
+            `,
+          }}
+        />
+        <Script
+          id="gtag-conversion"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function gtag_report_conversion(url) {
+                var callback = function () {
+                  if (typeof(url) != 'undefined') { window.location = url; }
+                };
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_',
+                  'event_callback': callback
+                });
+                return false;
+              }
             `,
           }}
         />

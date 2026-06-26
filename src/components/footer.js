@@ -51,7 +51,7 @@ const Footer = () => {
             <p className="text-[10px] font-black uppercase tracking-[0.3em] text-[#fe6b10] mb-6">Reservasi Sekarang</p>
             
             {/* Admin 1 - Primary Action */}
-            <a href={`https://wa.me/${admin1}`} className="group flex items-center justify-between p-6 bg-slate-900 rounded-[1.5rem] hover:bg-[#fe6b10] transition-all duration-500 shadow-xl shadow-slate-200">
+            <a href={`https://wa.me/${admin1}`} onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })} className="group flex items-center justify-between p-6 bg-slate-900 rounded-[1.5rem] hover:bg-[#fe6b10] transition-all duration-500 shadow-xl shadow-slate-200">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white">
                   <Phone size={20} />
@@ -65,7 +65,7 @@ const Footer = () => {
             </a>
 
             {/* Admin 2 - Secondary Action */}
-            <a href={`https://wa.me/${admin2}`} className="group flex items-center justify-between p-6 bg-white border border-slate-200 rounded-[1.5rem] hover:border-slate-900 transition-all duration-500">
+            <a href={`https://wa.me/${admin2}`} onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })} className="group flex items-center justify-between p-6 bg-white border border-slate-200 rounded-[1.5rem] hover:border-slate-900 transition-all duration-500">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 bg-slate-50 rounded-full flex items-center justify-center text-slate-900 group-hover:bg-slate-900 group-hover:text-white transition-colors">
                   <MessageCircle size={20} />

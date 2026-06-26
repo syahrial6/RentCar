@@ -71,6 +71,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.98 }}
                   href={`https://wa.me/${admin1}`}
                   target="_blank"
+                  onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                   className="w-full sm:w-auto bg-slate-900 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-200 hover:bg-[#fe6b10]"
                 >
                   <MessageCircle size={18} fill="currentColor" />
@@ -82,6 +83,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.98 }}
                   href={`https://wa.me/${admin2}`}
                   target="_blank"
+                  onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                   className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl border border-slate-200 hover:border-slate-900 transition-all"
                 >
                   <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Chat Admin 2</span>
