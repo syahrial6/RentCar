@@ -15,16 +15,14 @@ import {
 } from "lucide-react";
 
 const cars = [
-  { name: "Avanza Facelift", image: "/images/avanza_facelift.webp", price: "300.000", seats: "7", type: "Family MPV", transmission: "MT", fuel: "Bensin" },
   { name: "New BRIO RS", image: "/images/brio.webp", price: "350.000", seats: "5", type: "City Car", transmission: "AT", fuel: "Bensin" },
   { name: "New Avanza", image: "/images/avanza.webp", price: "350.000", seats: "7", type: "Family MPV", transmission: "AT/MT", fuel: "Bensin" },
   { name: "Innova Reborn", image: "/images/innova.webp", price: "500.000", seats: "7", type: "Executive", transmission: "AT/MT", fuel: "Diesel" },
-  { name: "Innova Zenix HEV", image: "/images/zenix_hybrid.webp", price: "700.000", seats: "7", type: "Modern MPV", transmission: "AT", fuel: "Bensin", isHybrid: true }, 
   { name: "Innova Zenix", image: "/images/zenix.webp", price: "600.000", seats: "7", type: "Modern MPV", transmission: "AT", fuel: "Bensin" }, 
   { name: "Fortuner GR Sport", image: "/images/fortuner.webp", price: "1.500.000", seats: "7", type: "Luxury SUV", transmission: "AT", fuel: "Diesel" },
   { name: "Hilux DC 4x4", image: "/images/hilux.webp", price: "1.500.000", seats: "5", type: "Adventure", transmission: "MT", fuel: "Diesel" },
-  { name: "Hiace Commuter", image: "/images/hiace.webp", price: "1.400.000", seats: "15", type: "Group Travel", transmission: "MT", fuel: "Diesel", includeDriver: true },
-  { name: "Alphard Transformer", image: "/images/alphard.webp", price: "4.000.000", seats: "7", type: "Presidential", transmission: "AT", fuel: "Bensin" },
+  { name: "Hiace Commuter", image: "/images/hiace.webp", price: "2.000.000", seats: "15", type: "Group Travel", transmission: "MT", fuel: "Diesel", includeDriver: true },
+  { name: "Alphard Transformer", image: "/images/alphard.webp", price: "4.000.000", seats: "7", type: "Presidential", transmission: "AT", fuel: "Bensin", includeDriver: true },
 ];
 
 const Catalog = () => {
@@ -170,23 +168,24 @@ const Catalog = () => {
                 {/* Booking Buttons */}
                 <div className="mt-auto flex flex-col gap-3">
                   <a
-                    href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name}`}
+                    href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name} dengan driver`}
                     target="_blank"
                     onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                     className="flex items-center justify-center gap-3 bg-slate-900 text-white py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:bg-[#fe6b10] hover:shadow-[0_10px_20px_rgba(254,107,16,0.2)] active:scale-95"
                   >
                     <MessageCircle size={18} />
-                    Chat Admin 1
+                    Sewa All in With Driver
                   </a>
-                  <a
-                    href={`https://wa.me/${admin2}?text=Halo Admin 2, Saya mau booking mobil ${car.name}`}
+                  {!car.includeDriver ? ( <a
+                    href={`https://wa.me/${admin2}?text=Halo Admin 2, Saya mau booking mobil ${car.name} tanpa driver`}
                     target="_blank"
                     onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                     className="flex items-center justify-center gap-3 bg-white border-2 border-slate-100 text-slate-900 py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:border-[#fe6b10] hover:text-[#fe6b10] active:scale-95"
                   >
                     <MessageCircle size={18} />
-                    Chat Admin 2
-                  </a>
+                    Sewa Lepas Kunci
+                  </a>):(<div></div>)}
+                 
                 </div>
               </div>
             </motion.div>
