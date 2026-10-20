@@ -38,6 +38,7 @@ const About = () => {
                 alt="Layanan sewa mobil pontianak eksklusif - Artha Royal Group"
                 width={800}
                 height={1000}
+                priority
                 className="w-full h-[500px] lg:h-[650px] object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
               />
               

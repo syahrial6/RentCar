@@ -22,10 +22,19 @@ const Navbar = () => {
   const [activeSection, setActiveSection] = useState("Home");
   const pathname = usePathname();
 
-  // 1. Background saat scroll
+  // 1. Background saat scroll (dengan requestAnimationFrame throttle)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -34,43 +43,46 @@ const Navbar = () => {
     document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
-  // 3. Deteksi section aktif (FIX utama di sini)
+  // 3. Deteksi section aktif (dengan requestAnimationFrame throttle)
   useEffect(() => {
-    // Kalau bukan homepage → pakai pathname
     if (pathname !== "/") {
       const currentLink = navLinks.find((l) => l.href === pathname);
       if (currentLink) setActiveSection(currentLink.name);
       return;
     }
 
+    let ticking = false;
     const handleScroll = () => {
-      const scrollPos = window.scrollY + window.innerHeight * 0.3;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrollPos = window.scrollY + window.innerHeight * 0.3;
+          let current = "Home";
 
-      let current = "Home";
+          navLinks.forEach((link) => {
+            if (link.href.startsWith("/#")) {
+              const id = link.href.split("#")[1];
+              const el = document.getElementById(id);
 
-      navLinks.forEach((link) => {
-        if (link.href.startsWith("/#")) {
-          const id = link.href.split("#")[1];
-          const el = document.getElementById(id);
+              if (el) {
+                const offsetTop = el.offsetTop;
+                const offsetBottom = offsetTop + el.offsetHeight;
 
-          if (el) {
-            const offsetTop = el.offsetTop;
-            const offsetBottom = offsetTop + el.offsetHeight;
-
-            if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
-              current = link.name;
+                if (scrollPos >= offsetTop && scrollPos < offsetBottom) {
+                  current = link.name;
+                }
+              }
             }
-          }
-        }
-      });
+          });
 
-      // fallback kalau di paling atas
-      if (window.scrollY < 100) current = "Home";
-
-      setActiveSection(current);
+          if (window.scrollY < 100) current = "Home";
+          setActiveSection(current);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -230,7 +242,6 @@ const Navbar = () => {
               </div>
               <a
                 href="https://wa.me/6283873325988"
-                onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                 className="w-14 h-14 bg-slate-900 rounded-2xl flex items-center justify-center text-[#fe6b10]"
               >
                 <MessageCircle
