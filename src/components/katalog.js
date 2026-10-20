@@ -271,21 +271,35 @@ const Catalog = () => {
                 {/* Booking Buttons */}
                 <div className="mt-auto flex flex-col gap-3">
                   <a
-                    href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name}`}
+                    href={`https://wa.me/${admin1}?text=Halo Admin 1, Saya mau booking mobil ${car.name} dengan driver`}
                     target="_blank"
+                    onClick={() =>
+                      window.gtag?.("event", "conversion", {
+                        send_to: "AW-17104611193/7eu0CPiqwZsbEPnOjtw_",
+                      })
+                    }
                     className="flex items-center justify-center gap-3 bg-slate-900 text-white py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:bg-[#fe6b10] hover:shadow-[0_10px_20px_rgba(254,107,16,0.2)] active:scale-95"
                   >
                     <MessageCircle size={18} />
-                    Chat Admin 1
+                    Sewa All in With Driver
                   </a>
-                  <a
-                    href={`https://wa.me/${admin2}?text=Halo Admin 2, Saya mau booking mobil ${car.name}`}
-                    target="_blank"
-                    className="flex items-center justify-center gap-3 bg-white border-2 border-slate-100 text-slate-900 py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:border-[#fe6b10] hover:text-[#fe6b10] active:scale-95"
-                  >
-                    <MessageCircle size={18} />
-                    Chat Admin 2
-                  </a>
+                  {!car.includeDriver ? (
+                    <a
+                      href={`https://wa.me/${admin2}?text=Halo Admin 2, Saya mau booking mobil ${car.name} tanpa driver`}
+                      target="_blank"
+                      onClick={() =>
+                        window.gtag?.("event", "conversion", {
+                          send_to: "AW-17104611193/7eu0CPiqwZsbEPnOjtw_",
+                        })
+                      }
+                      className="flex items-center justify-center gap-3 bg-white border-2 border-slate-100 text-slate-900 py-4 rounded-2xl font-bold text-[11px] uppercase tracking-[0.2em] transition-all hover:border-[#fe6b10] hover:text-[#fe6b10] active:scale-95"
+                    >
+                      <MessageCircle size={18} />
+                      Sewa Lepas Kunci
+                    </a>
+                  ) : (
+                    <div></div>
+                  )}
                 </div>
               </div>
             </motion.div>

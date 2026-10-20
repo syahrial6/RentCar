@@ -45,20 +45,20 @@ const Hero = () => {
               </div>
 
               {/* Headline */}
-              <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 tracking-tighter uppercase mb-6 leading-[1.1]">
-                The New <br />
-                <span className="text-[#fe6b10]">
-                  <Typewriter
-                    words={["Standard.", "Comfort.", "Elegance."]}
-                    loop={0}
-                    cursor
-                    cursorStyle="|"
-                    typeSpeed={70}
-                    deleteSpeed={50}
-                    delaySpeed={2000}
-                  />
-                </span>
-              </h1>
+             <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black text-slate-900 tracking-tighter uppercase mb-6 leading-[1.1]">
+  Rental Mobil Pontianak <br />
+  <span className="text-[#fe6b10]">
+    <Typewriter
+      words={["Terpercaya.", "Premium.", "24 Jam."]}
+      loop={0}
+      cursor
+      cursorStyle="|"
+      typeSpeed={70}
+      deleteSpeed={50}
+      delaySpeed={2000}
+    />
+  </span>
+</h1>
 
               <p className="max-w-xl text-slate-500 text-base md:text-lg lg:text-xl leading-relaxed mb-10 font-medium mx-auto lg:mx-0">
                 Solusi mobilitas premium di Pontianak. Kami menyediakan armada terbaik untuk menunjang perjalanan bisnis maupun personal Anda.
@@ -71,6 +71,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.98 }}
                   href={`https://wa.me/${admin1}`}
                   target="_blank"
+                  onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                   className="w-full sm:w-auto bg-slate-900 text-white px-8 py-4 rounded-xl font-black uppercase tracking-widest flex items-center justify-center gap-3 transition-all shadow-lg shadow-slate-200 hover:bg-[#fe6b10]"
                 >
                   <MessageCircle size={18} fill="currentColor" />
@@ -82,6 +83,7 @@ const Hero = () => {
                   whileTap={{ scale: 0.98 }}
                   href={`https://wa.me/${admin2}`}
                   target="_blank"
+                  onClick={() => window.gtag?.('event', 'conversion', { send_to: 'AW-17104611193/7eu0CPiqwZsbEPnOjtw_' })}
                   className="w-full sm:w-auto flex items-center justify-center gap-3 px-8 py-4 rounded-xl border border-slate-200 hover:border-slate-900 transition-all"
                 >
                   <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">Chat Admin 2</span>
